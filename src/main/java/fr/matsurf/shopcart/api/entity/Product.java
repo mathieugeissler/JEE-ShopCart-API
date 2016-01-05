@@ -1,13 +1,13 @@
 package fr.matsurf.shopcart.api.entity;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-
-
 
 @javax.persistence.Entity
 @Table(name = "Product")
@@ -20,11 +20,11 @@ public class Product implements Entity {
 	private ProductCategory category;
 
 	public Product() {
-		
+
 	}
-	
+
 	@Id
-	@GeneratedValue(generator = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GenericGenerator(name = "increment", strategy = "increment")
 	public Long getId() {
 		return id;
@@ -34,6 +34,7 @@ public class Product implements Entity {
 		this.id = id;
 	}
 
+	@Column(nullable = false)
 	public String getName() {
 		return name;
 	}
@@ -42,7 +43,7 @@ public class Product implements Entity {
 		this.name = name;
 	}
 
-	@OneToMany
+	@OneToOne
 	public ProductCategory getCategory() {
 		return category;
 	}

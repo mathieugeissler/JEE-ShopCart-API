@@ -1,6 +1,8 @@
 package fr.matsurf.shopcart.api.entity;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -20,7 +22,7 @@ public class ProductCategory implements Entity {
 	}
 
 	@Id
-	@GeneratedValue(generator = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@GenericGenerator(name = "increment", strategy = "increment")
 	public Long getId() {
 		return id;
@@ -30,6 +32,7 @@ public class ProductCategory implements Entity {
 		this.id = id;
 	}
 
+	@Column(nullable = false)
 	public String getName() {
 		return name;
 	}
