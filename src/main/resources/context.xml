@@ -50,6 +50,8 @@
 	<!-- INIT REST COMPONENTS -->
 	<bean id="ProductDao" class="fr.matsurf.shopcart.api.dao.product.JpaProduct" />
 	<bean id="ProductCategoryDao" class="fr.matsurf.shopcart.api.dao.product.JpaProductCategory" />
+	<bean id="ProductPriceDao" class="fr.matsurf.shopcart.api.dao.product.JpaProductPrice" />
+	<bean id="StoreDao" class="fr.matsurf.shopcart.api.dao.store.JpaStore" />
 	
 	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
 

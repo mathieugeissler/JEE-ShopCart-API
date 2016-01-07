@@ -13,6 +13,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,14 +21,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.matsurf.shopcart.api.dao.product.ProductCategoryDao;
 import fr.matsurf.shopcart.api.entity.ProductCategory;
 
+@Component
 @Path("/product/category")
 public class ProductCategoryResource {
 
 	@Autowired
-	ProductCategoryDao categoryDao;
+	private ProductCategoryDao categoryDao;
 
 	@Autowired
-	ObjectMapper mapper;
+	private ObjectMapper mapper;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
