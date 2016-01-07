@@ -8,23 +8,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @javax.persistence.Entity
-@Table(name = "Product")
-public class Product implements Entity {
+@Table(name = "Store")
+public class Store implements Entity {
 
-	private static final long serialVersionUID = 1665869316413297956L;
-
+	private static final long serialVersionUID = 8036593507914130153L;
+	
 	private Long id;
 	private String name;
-	private ProductCategory category;
+	private String city;
 	private Set<ProductPrice> productPrices = new HashSet<ProductPrice>();
-
-	public Product() {
+	
+	public Store() {
 		super();
 	}
 
@@ -49,16 +48,16 @@ public class Product implements Entity {
 		this.name = name;
 	}
 
-	@OneToOne
-	public ProductCategory getCategory() {
-		return category;
+	@Column(nullable = false)
+	public String getCity() {
+		return city;
 	}
 
-	public void setCategory(ProductCategory category) {
-		this.category = category;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	@OneToMany(mappedBy = "product")
+	@OneToMany(mappedBy = "store")
 	public Set<ProductPrice> getProductPrices() {
 		return productPrices;
 	}
@@ -66,5 +65,5 @@ public class Product implements Entity {
 	public void setProductPrices(Set<ProductPrice> productPrices) {
 		this.productPrices = productPrices;
 	}
-
+	
 }

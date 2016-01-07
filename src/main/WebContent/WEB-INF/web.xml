@@ -17,7 +17,7 @@
 		<!-- Register resources and providers -->
 		<init-param>
 			<param-name>jersey.config.server.provider.packages</param-name>
-			<param-value>com.jersey.series.spring.hibernate.service</param-value>
+			<param-value>fr.matsurf.shopcart.api.rest</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

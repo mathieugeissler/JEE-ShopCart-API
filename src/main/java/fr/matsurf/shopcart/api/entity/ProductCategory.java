@@ -28,6 +28,7 @@ public class ProductCategory implements Entity {
 		return id;
 	}
 
+	@SuppressWarnings("unused")
 	private void setId(Long id) {
 		this.id = id;
 	}
